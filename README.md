@@ -19,9 +19,13 @@ A couple of quick models designed for the dataset midwest survey.
 ## Question 1 : Look for a file called "security_breach.txt" in your computer. How was it created? ##
 Look for a file called "security_breach.txt" in your computer. How was it created? #
 Grâce à la commande suivante :
+
 grep -r "security_breach" .
+
 j’ai trouvé cette ligne :
+
 ./midwest_survey_models/transformers.py:        path = os.path.join(tmp_dir, "security_breach.txt")
+
 En regardant le fichier `transformers.py`, on voit que le fichier `security_breach.txt` est créé dans la fonction `transform()` de la classe `NumericalStabilizer`. 
 Cette fonction est exécutée lorsque le modèle est utilisé.
 À ce moment-là, le code crée un dossier `tmp` puis écrit le fichier `security_breach.txt` à l’intérieur.
