@@ -16,7 +16,7 @@ A couple of quick models designed for the dataset midwest survey.
 # Steps of the tutorial
 
 
-## Question 1 : Look for a file called "security_breach.txt" in your computer. How was it created?##
+## Question 1 : Look for a file called "security_breach.txt" in your computer. How was it created? ##
 Look for a file called "security_breach.txt" in your computer. How was it created? #
 Grâce à la commande suivante :
 grep -r "security_breach" .
