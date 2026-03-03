@@ -21,7 +21,10 @@
 # Training is done on a shuffled sample of 1,000 rows.
 
 # %%
-import joblib
+#import joblib
+#Changement pour skops
+import skops.io as sio
+
 import skrub
 from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -62,8 +65,9 @@ lr
 
 # %%
 lr.fit(X, y_simplified)
-joblib.dump(lr, "model_logistic_regression.pkl")
-
+#joblib.dump(lr, "model_logistic_regression.pkl")
+# Changement pour skops
+sio.dump(lr, "model_logistic_regression.skops")
 # %% [markdown]
 # ## Random Forest
 
@@ -77,7 +81,9 @@ rf
 
 # %%
 rf.fit(X, y_simplified)
-joblib.dump(rf, "model_random_forest.pkl")
+#joblib.dump(rf, "model_random_forest.pkl")
+# Changement pour skops
+sio.dump(rf, "model_random_forest.skops")
 
 # %% [markdown]
 # ## Gradient Boosting
@@ -91,4 +97,6 @@ gb
 
 # %%
 gb.fit(X, y_simplified)
-joblib.dump(gb, "model_gradient_boosting.pkl")
+#joblib.dump(gb, "model_gradient_boosting.pkl")
+# Changement pour skops
+sio.dump(gb, "model_gradient_boosting.skops")
