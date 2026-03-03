@@ -15,8 +15,8 @@ A couple of quick models designed for the dataset midwest survey.
 
 # Steps of the tutorial
 
-1. Look for a file called "security_breach.txt" in your computer. How was it created?
-## Question 1 ##
+
+## Question 1 : Look for a file called "security_breach.txt" in your computer. How was it created?##
 Look for a file called "security_breach.txt" in your computer. How was it created? #
 Grâce à la commande suivante :
 grep -r "security_breach" .
@@ -27,14 +27,12 @@ Cette fonction est exécutée lorsque le modèle est utilisé.
 À ce moment-là, le code crée un dossier `tmp` puis écrit le fichier `security_breach.txt` à l’intérieur.
 Le fichier est donc généré automatiquement par le transformeur personnalisé quand le modèle s’exécute.
 
-2. This file created is quite harmless; could you give an example of something that could have been done more harmful?
-## Question 2 ##
+## Question 2 This file created is quite harmless; could you give an example of something that could have been done more harmful? ##
 This file created is quite harmless; could you give an example of something that could have been done more harmful?#
 Même si le fichier security_breach.txt est inoffensif, le même mécanisme aurait pu exécuter du code malveillant lors du chargement du modèle.
 Par exemple, il aurait pu supprimer des fichiers, voler des données sensibles (comme des clés API) ou installer un programme malveillant sur la machine.
 
-3. Implement a new way to safely share models (hint: check the library skops)
-## Question 3 ##
+## Question 3 Implement a new way to safely share models (hint: check the library skops) ##
 Après la première exécution, j’ai supprimé les fichiers .pkl générés avec joblib.
 J’ai ensuite remplacé les appels à joblib.dump par sio.dump de la bibliothèque skops, et installé la dépendance avec pixi add skops.
 Les modèles sont désormais enregistrés au format .skops, ce qui permet d’inspecter les types personnalisés avant le chargement grâce à get_untrusted_types(), puis de charger le modèle de manière contrôlée avec sio.load(..., trusted=...).
